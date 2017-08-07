@@ -15,12 +15,12 @@ void LedsCreate(uint16_t * memAdress)
 
 void LedOn(uint8_t ledNumber)
 {
-	*leds = 1;
+	*leds |= ledNumber2hex(ledNumber);
 }
 
 void LedOff(uint8_t ledNumber)
 {
-	*leds = 0;
+	*leds &= ~ledNumber2hex(ledNumber);
 }
 
 void LedsOn(uint16_t ledsMask)

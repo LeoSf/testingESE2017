@@ -22,14 +22,16 @@ void test_LedsOffAfterCreate(void)
 
 void test_LedOn(void)
 {
-	LedOn(1);
-	TEST_ASSERT_EQUAL(1, puerto);
+	int led2test = 4;
+	LedOn(led2test);
+	TEST_ASSERT_EQUAL((1<<led2test) , (1<<led2test)& puerto);
 }
 
 void test_LedOff(void)
 {
-	LedOff(1);
-	TEST_ASSERT_EQUAL(0, puerto);
+	int led2test = 4;
+	LedOff(led2test);
+	TEST_ASSERT_EQUAL(~(1<<led2test), ~(1<<led2test)| puerto);
 }
 
 void test_LedsOn(void)
