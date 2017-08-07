@@ -1,3 +1,3 @@
+#include <stdint.h>
 
-
-int LedsOffAfterCreate(void);
+int LedsOffAfterCreate(uint16_t * direccion);
