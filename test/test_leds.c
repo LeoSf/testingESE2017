@@ -4,8 +4,9 @@
 
 static uint16_t puerto;
 
-void setUP()
+void setUp()
 {
+	LedsCreate(&puerto);
 }
 
 void tearDown()
@@ -21,14 +22,12 @@ void test_LedsOffAfterCreate(void)
 
 void test_LedsOn(void)
 {
-	LedsCreate(&puerto);
 	LedsOn(1);
 	TEST_ASSERT_EQUAL(1, puerto);
 }
 
 void test_LedsOff(void)
 {
-	LedsCreate(&puerto);
 	LedsOff(1);
 	TEST_ASSERT_EQUAL(0, puerto);
 }
