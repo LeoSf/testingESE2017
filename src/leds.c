@@ -15,13 +15,20 @@ void LedsCreate(uint16_t * memAdress)
 
 void LedOn(uint8_t ledNumber)
 {
-	*leds |= LedNumber2hex(ledNumber);
+	if (ledNumber == ALL_LEDS_ON)
+		*leds = ALL_LEDS_ON;
+	else
+		*leds |= LedNumber2hex(ledNumber);
 //	*leds |= LedNumber2hex(ledNumber+1);	//para probar la falla de modificación de otro led
+
 }
 
 void LedOff(uint8_t ledNumber)
 {
-	*leds &= ~LedNumber2hex(ledNumber);
+	if (ledNumber == ALL_LEDS_OFF)
+		*leds = ALL_LEDS_OFF;
+	else
+		*leds &= ~LedNumber2hex(ledNumber);
 //	*leds |= LedNumber2hex(ledNumber+1);	//para probar la falla de otro led
 }
 

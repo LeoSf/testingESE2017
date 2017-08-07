@@ -1,5 +1,10 @@
 #include <stdint.h>
 
+enum{
+	ALL_LEDS_OFF = 0,
+	ALL_LEDS_ON = !ALL_LEDS_OFF
+};
+
 void LedsCreate(uint16_t * memAdress);
 
 void LedOn(uint8_t ledNumber);

@@ -52,3 +52,15 @@ void test_LedsOff(void)
 	TEST_ASSERT_EQUAL(ledsMask & puertoStartValue, puerto);
 }
 
+void test_AllLedsOn(void)
+{
+	LedOn(ALL_LEDS_ON);
+	TEST_ASSERT_EQUAL(0xFF, puerto);
+}
+
+void test_AllLedsOff(void)
+{
+	LedOff(ALL_LEDS_OFF);
+	TEST_ASSERT_EQUAL(0x00, puerto);
+}
+
