@@ -20,6 +20,18 @@ void test_LedsOffAfterCreate(void)
 	TEST_ASSERT_EQUAL(0, puerto);
 }
 
+void test_LedOn(void)
+{
+	LedOn(1);
+	TEST_ASSERT_EQUAL(1, puerto);
+}
+
+void test_LedOff(void)
+{
+	LedOff(1);
+	TEST_ASSERT_EQUAL(0, puerto);
+}
+
 void test_LedsOn(void)
 {
 	LedsOn(1);
