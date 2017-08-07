@@ -11,7 +11,7 @@ int LedsOffAfterCreate(uint16_t * memAdress){
 	else 
 		result =-1; 
 
-	return memAdress;
+	return result;
 
 }
 
