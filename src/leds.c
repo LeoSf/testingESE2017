@@ -2,7 +2,7 @@
 
 static uint16_t * leds;
 
-static int ledNumber2hex(uint8_t ledNumber)
+static int LedNumber2hex(uint8_t ledNumber)
 {
 	return 1<<ledNumber;
 }
@@ -15,12 +15,12 @@ void LedsCreate(uint16_t * memAdress)
 
 void LedOn(uint8_t ledNumber)
 {
-	*leds |= ledNumber2hex(ledNumber);
+	*leds |= LedNumber2hex(ledNumber);
 }
 
 void LedOff(uint8_t ledNumber)
 {
-	*leds &= ~ledNumber2hex(ledNumber);
+	*leds &= ~LedNumber2hex(ledNumber);
 }
 
 void LedsOn(uint16_t ledsMask)

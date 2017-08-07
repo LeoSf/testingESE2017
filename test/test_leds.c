@@ -23,15 +23,17 @@ void test_LedsOffAfterCreate(void)
 void test_LedOn(void)
 {
 	int led2test = 4;
+	uint16_t puertoStartValue = puerto;
 	LedOn(led2test);
-	TEST_ASSERT_EQUAL((1<<led2test) , (1<<led2test)& puerto);
+	TEST_ASSERT_EQUAL((1<<led2test) | puertoStartValue, (1<<led2test) | puerto);
 }
 
 void test_LedOff(void)
 {
 	int led2test = 4;
+	uint16_t puertoStartValue = puerto;
 	LedOff(led2test);
-	TEST_ASSERT_EQUAL(~(1<<led2test), ~(1<<led2test)| puerto);
+	TEST_ASSERT_EQUAL(~(1<<led2test) & puertoStartValue, ~(1<<led2test)& puerto);
 }
 
 void test_LedsOn(void)
