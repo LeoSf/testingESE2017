@@ -8,7 +8,12 @@ void LedsCreate(uint16_t * memAdress)
 	*leds = 0;
 }
 
-int LedsOn(uint8_t ledNumber)
+void LedsOn(uint8_t ledNumber)
 {
 	*leds = 1;
+}
+
+void LedsOff(uint8_t ledNumber)
+{
+	*leds = 0;
 }
