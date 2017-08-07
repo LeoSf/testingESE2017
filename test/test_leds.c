@@ -2,7 +2,7 @@
 #include "leds.h"
 #include <stdint.h>
 
-static uint16_t puerto = 0xFFFF;
+static uint16_t puerto;
 
 void setUP()
 {
@@ -14,5 +14,9 @@ void tearDown()
 
 void test_LedsOffAfterCreate(void)
 {
-	TEST_ASSERT_EQUAL(0, LedsOffAfterCreate(&puerto));
+	uint16_t puerto = 0xFFFF;
+	LedsCreate(&puerto);
+	TEST_ASSERT_EQUAL(0, puerto);
 }
+
+
