@@ -38,13 +38,17 @@ void test_LedOff(void)
 
 void test_LedsOn(void)
 {
-	LedsOn(1);
-	TEST_ASSERT_EQUAL(1, puerto);
+	uint16_t puertoStartValue = puerto;
+	uint16_t ledsMask = (1<<0 | 1<<2 | 1<< 15);
+	LedsOn(ledsMask);
+	TEST_ASSERT_EQUAL(ledsMask | puertoStartValue, puerto);
 }
 
 void test_LedsOff(void)
 {
-	LedsOff(1);
-	TEST_ASSERT_EQUAL(0, puerto);
+	uint16_t puertoStartValue = puerto;
+	uint16_t ledsMask = ~(1<<0 | 1<<2 | 1<< 15);
+	LedsOff(ledsMask);
+	TEST_ASSERT_EQUAL(ledsMask & puertoStartValue, puerto);
 }
 
