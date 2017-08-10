@@ -3,6 +3,7 @@
 #include <stdint.h>
 
 static uint16_t puerto;
+//uint16_t puerto;
 
 void setUp()
 {
@@ -46,6 +47,7 @@ void test_LedsOn(void)
 
 void test_LedsOff(void)
 {
+	puerto = 0xFFFF;
 	uint16_t puertoStartValue = puerto;
 	uint16_t ledsMask = ~(1<<0 | 1<<2 | 1<< 12);
 	LedsOff(ledsMask);
@@ -54,13 +56,20 @@ void test_LedsOff(void)
 
 void test_AllLedsOn(void)
 {
-	LedOn(ALL_LEDS_ON);
-	TEST_ASSERT_EQUAL(0xFF, puerto);
+//	LedsOn(ALL_LEDS_ON);
+	LedsOn(0xFFFF);
+	TEST_ASSERT_EQUAL(0xFFFF, puerto);
 }
 
 void test_AllLedsOff(void)
 {
-	LedOff(ALL_LEDS_OFF);
-	TEST_ASSERT_EQUAL(0x00, puerto);
+	puerto = 0xFFFF;
+	LedsOff(ALL_LEDS_OFF);
+	TEST_ASSERT_EQUAL(0x0000, puerto);
+}
+
+void test_LowerLimit(void)
+{
+	
 }
 
